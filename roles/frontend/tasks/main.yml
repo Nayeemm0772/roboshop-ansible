@@ -1,5 +1,6 @@
+#Main Code
 - name: Install nginx
   ansible.builtin.yum:
     name: nginx
     state: latest
-     
+
