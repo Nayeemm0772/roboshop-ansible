@@ -20,6 +20,13 @@
     state: absent
 
 
+- name: unarchieve a file that needs to be downloaded #hfbgkhkdc
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+
 
 
 
