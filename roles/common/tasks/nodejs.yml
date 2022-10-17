@@ -13,3 +13,10 @@
 
 - name: Import App Pre-Req Task file
   ansible.builtin.import_tasks: app-prereq.yml
+
+- name: Install NodeJS Dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+
