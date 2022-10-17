@@ -9,8 +9,8 @@
     state: started
     name: nginx
 
-- name: Downloading Nginx Web Content & Extract it
-  ansible.builtin.unarchive:
+- name: Downloading Nginx Web Content
+  ansible.builtin.get_url:
     url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp/frontend.zip
 
@@ -19,7 +19,7 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: unarchieve a file that needs to be downloaded #hfkhkdc
+- name: unarchieve a file that needs to be downloaded #hfbgkhkdc
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
