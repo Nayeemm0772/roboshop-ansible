@@ -2,5 +2,10 @@
 - name: Install nginx
   ansible.builtin.yum:
     name: nginx
-    state: latest
+    state: installed
+
+- name: Start Nginx Service
+  ansible.builtin.systemd:
+    state: started
+    name: nginx
 
