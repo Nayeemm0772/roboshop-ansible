@@ -25,7 +25,7 @@
 
 - name: print out
   debug:
-    msg: "{{ out['content'] | b64decode }}"
+    msg: "{{ out['content'] | b64decode | regex_findall('temporary password') }}"
 
 
 
