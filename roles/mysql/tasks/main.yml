@@ -25,7 +25,7 @@
 
 - name: print out
   debug:
-    msg: "{{out}}"
+    msg: "{{ out | b64decode }}"
 
 
 
