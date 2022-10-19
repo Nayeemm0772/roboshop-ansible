@@ -39,6 +39,13 @@
     login_password: "{{ROBOSHOP_MYSQL_PASSWORD}}"
     filter: version
   ignore_errors: yes
+  register: mysql_conn_status
+
+- name: print status
+  debug:
+    msg: "{{mysql_conn_status}}"
+
+
 
 
 
