@@ -6,9 +6,9 @@
   ansible.builtin.yum:
     name: "{{item}}"
     state: installed
-    disable_gpg_check: yes
+    #disable_gpg_check: yes
   loop:
-    - https://github.com/rabbitmq/erlang-rpm/releases/download/v25.1/erlang-25.1-1.el8.x86_64.rpm
+    - https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm
     - rabbitmq-server
 
 - name: Start RabbitMQ Server
@@ -17,14 +17,4 @@
     state: started
     enabled: yes
 
-- name: Add application user
-  community.rabbitmq.rabbitmq_user:
-    user: roboshop
-    password: "{{ROBOSHOP_RABBITMQ_PASSWORD}}"
-    vhost: /
-    configure_priv: .*
-    read_priv: .*
-    write_priv: .*
-    state: present
-    tags: administrator
 
