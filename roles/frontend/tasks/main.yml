@@ -1,25 +1,14 @@
-#Main Code
-- name: Install nginx
+- name: Install Nginx
   ansible.builtin.yum:
     name: nginx
     state: installed
-
-- name: Start Nginx Service
-  ansible.builtin.systemd:
-    state: started
-    name: nginx
-
-- name: Downloading Nginx Web Content
-  ansible.builtin.get_url:
-    url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp/frontend.zip
 
 - name: Removing Old Web Content
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
 
-- name: unarchieve a file that needs to be downloaded #hfbgkhkdc
+- name: Downloading Nginx Web Content & Extract it
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
@@ -31,26 +20,20 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Copy Nginx config file
+- name: Copy Nginx Service Config file
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Restart Nginx Service
+
+- name: Copy RoboShop Nginx Config file
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  notify: restart nginx service
+  notify: Restart Nginx Service
 
 - name: Start Nginx Service
   ansible.builtin.systemd:
     state: started
     name: nginx
     enabled: yes
-
-
-
-
-
-
-
-
-
-
-
-
