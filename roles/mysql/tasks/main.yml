@@ -41,7 +41,6 @@
   ignore_errors: yes
   register: mysql_conn_status
 
-
 - name: Copy SQL File to reset password
   ansible.builtin.template:
     src: reset-root-pass.sql
