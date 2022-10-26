@@ -1,4 +1,6 @@
 COMPONENT: shipping
 
+PROMETHEUS_MONITOR: yes
+RSYSLOG_CONFIG: yes
 
 
