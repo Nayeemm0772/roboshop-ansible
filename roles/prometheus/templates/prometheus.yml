@@ -11,6 +11,7 @@ alerting:
 
 
 rule_files:
+  - "record-rules.yml"
   # - "first_rules.yml"
   # - "second_rules.yml"
 
