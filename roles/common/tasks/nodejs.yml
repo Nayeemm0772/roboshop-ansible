@@ -6,11 +6,6 @@
     name: nodejs
     state: installed
 
-#- name: Run NodeJS
-#  ansible,builtin.import_role:
-#    name: common
-#    tasks_from: nodejs
-
 - name: Import App Pre-Req Task file
   ansible.builtin.import_tasks: app-prereq.yml
 
@@ -18,6 +13,7 @@
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
-#
+
 - name: Import SystemD tasks
   ansible.builtin.import_tasks: systemd.yml
+
