@@ -2,6 +2,5 @@ COMPONENT: rabbitmq
 SECRETS: "{{lookup('amazon.aws.aws_secret', 'roboshop/all-secrets', region='us-east-1')}}"
 
 
-PROMETHEUS_MONITOR: yes
-RSYSLOG_CONFIG: yes
+
 

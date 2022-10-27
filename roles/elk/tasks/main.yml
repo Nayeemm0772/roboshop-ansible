@@ -1,6 +1,3 @@
-template(name="OnlyMsg" type="string" string="%msg:::drop-last-lf%\n")
-
-if( $programname == '{{COMPONENT}}') then {
-action(type="omfile" file="/var/log/{{COMPONENT}}.log" template="OnlyMsg")
-& stop
-}
+- name: Load Logstash
+  when: LOGSTASH is defined
+  ansible.builtin.import_tasks: logstash.yml
